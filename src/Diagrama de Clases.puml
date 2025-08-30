@@ -1,0 +1,29 @@
+@startuml
+class Atleta {
+  - nombre : String
+  - edad : int
+  - disciplina : String
+  - departamento : String
+  - entrenamientos : List<Entrenamiento>
+  + agregarEntrenamiento(e: Entrenamiento) : void
+  + mostrarHistorial() : void
+  + getPromedio() : double
+  + getMejorMarca() : double
+}
+
+class Entrenamiento {
+  - fecha : String
+  - tipo : String
+  - valor : double
+  + toString() : String
+}
+
+class Main {
+  + main(args: String[]) : void
+  - buscarAtleta(atletas: List<Atleta>, nombre: String) : Atleta
+}
+
+Atleta "1" -- "many" Entrenamiento
+Main ..> Atleta
+Main ..> Entrenamiento
+@enduml
